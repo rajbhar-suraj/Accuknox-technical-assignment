@@ -1,8 +1,8 @@
 **How to run it locally**  
 1. clone the repository in the local machine: git clone https://github.com/rajbhar-suraj/Accuknox-technical-assignment.git
-2. run the following commands:
-      a. npm install
-      b. npm run dev
+2. run the following commands:<br>
+      npm install <br>
+      npm run dev <br>
 
 
 **High‑Level Summary of the *Accuknox Technical Assignment* Repository**
