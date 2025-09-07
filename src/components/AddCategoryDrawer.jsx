@@ -17,12 +17,14 @@ const AddCategoryDrawer = ({ isOpen, onClose, title, subtitle, category, fields,
         setCategoryName("")
         onClose();
     };
+    const selected = category.find((c) => c.id === selectedCategory);
+
 
     return (
         <div
             className={`fixed top-0 right-0 h-full bg-white shadow-xl transform transition-transform duration-300 z-50
                     ${isOpen ? "translate-x-0" : "translate-x-full"}
-                    w-full sm:w-180`} 
+                    w-full sm:w-180`}
         >
             {/* Header */}
             <div className="flex justify-between items-center bg-blue-950 text-white p-4 border-b border-gray-200">
@@ -77,21 +79,21 @@ const AddCategoryDrawer = ({ isOpen, onClose, title, subtitle, category, fields,
 
             {/* Render widgets for selected category in one place */}
             <div className="p-4">
-                {selectedCategory && (
-                    () => {
-                        const selected = category.find(c => c.id === selectedCategory)
-
-                        if (selected.widgets.length <= 0) {
-                            return <p className="text-gray-900">No Widgets added</p>
-                        }
-                        return selected.widgets.map((wid, i) => (
+                {selected ? (
+                    selected.widgets.length > 0 ? (
+                        selected.widgets.map((wid, i) => (
                             <label key={`${selectedCategory}-${i}`} className="flex gap-2 text-gray-900">
                                 {wid.widgetName}
                             </label>
                         ))
-                    }
-                )()}
+                    ) : (
+                        <p className="text-gray-900">No Widgets added</p>
+                    )
+                ) : (
+                    <p className="text-gray-500">Select a category to see widgets</p>
+                )}
             </div>
+
 
             {/* Footer */}
             <div className="p-4 fixed bottom-0 right-0 flex justify-end gap-2 border-gray-200">
