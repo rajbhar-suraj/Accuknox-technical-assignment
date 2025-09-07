@@ -53,7 +53,7 @@ const Navbar = () => {
             </div>
 
             {/* Left Section: Logo + Links */}
-            <div className={`${menuOpen ? "flex" : "hidden"}  flex-col md:flex md:flex-row md:pl-10 gap-4 md:gap-6 font-bold text-blue-950 mt-3 md:mt-0`}>
+            <div className={`${menuOpen ? "flex" : "hidden"}  flex-col md:flex md:flex-row md:pl-10 gap-4 md:gap-6 font-bold text-blue-950 md:mt-0`}>
                 <div className={`${path === '/' ? "text-blue-950" : "text-gray-400"} flex items-center gap-3`}>
                     <Link to="/" >Home</Link>
                     <FaChevronRight />
@@ -63,7 +63,7 @@ const Navbar = () => {
 
 
 
-            <div className={`${menuOpen ? "flex-col space-y-2.5" : "hidden"} md:flex md:pr-10 md:gap-20 md items-center mt-3 md:mt-0`}>
+            <div className={`${menuOpen ? "flex-col space-y-2.5" : "hidden"} md:flex md:pr-10 md:gap-20 md items-center mt-5 md:mt-0`}>
                 <div >
                     {/* Search Bar */}
                     <div className="relative">
@@ -88,14 +88,14 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex justify-center gap-5 md:gap-10 ">
-                    <button className="cursor-pointer p-1.5 text-gray-400 hover:text-blue-950 ">
+                    <button className="cursor-pointer p-1.5 text-gray-400 hover:text-blue-950 md:mt-1.5">
                         <PiBellRingingFill size={22} />
                     </button>
-                    <div className="cursor-pointer p-1.5 text-gray-400 hover:text-blue-950 ">
+                    <div className="cursor-pointer p-1.5 md:mt-1.5 text-gray-400 hover:text-blue-950 ">
                         <FaAngleDown />
                     </div>
                     {/* User Dropdown */}
-                    <div className="flex items-center gap-1 cursor-pointer bg-gray-300 rounded-full p-1.5 text-gray-100 hover:text-blue-950 ">
+                    <div className="flex items-center gap-1 cursor-pointer md:mt-1.5 bg-gray-300 rounded-full p-1.5 text-gray-100 hover:text-blue-950 ">
                         <FaUser size={20} />
 
                     </div>
