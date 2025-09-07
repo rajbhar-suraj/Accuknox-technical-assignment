@@ -42,7 +42,7 @@ const Dashboard = () => {
   }, [categories, searchQuery]);
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+<div className="bg-gray-100 min-h-screen w-full flex flex-col">
       {/* Overlay */}
       {isOpen && (
         <div
