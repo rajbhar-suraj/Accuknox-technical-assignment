@@ -35,11 +35,11 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="flex flex-col md:flex-row justify-between items-center bg-white text-white px-6 py-3 shadow-md">
+        <nav className="stranverse-nav flex flex-col md:flex-row justify-between items-center text-slate-200 px-6 py-3">
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-black opacity-50 z-40"
-                    onClick={() => setMenuOpen(false)}
+                    className="fixed inset-0 bg-black/60 z-40"
+                    onClick={() => setIsOpen(false)}
                 />
             )}
             {/* Mobile section */}
@@ -50,15 +50,23 @@ const Navbar = () => {
                 >
                     <FaBars size={24} />
                 </button>
+                <Link to="/" className="flex items-center gap-2 font-extrabold text-lg tracking-wide">
+                    <span className="text-neon">Stran</span>Verse
+                </Link>
             </div>
 
+            {/* Desktop brand */}
+            <Link to="/" className="hidden md:flex items-center gap-2 font-extrabold text-xl tracking-wide ml-2">
+                <span className="text-neon">Stran</span>Verse
+            </Link>
+
             {/* Left Section: Logo + Links */}
-            <div className={`${menuOpen ? "flex" : "hidden"}  flex-col md:flex md:flex-row md:pl-10 gap-4 md:gap-6 font-bold text-blue-950 md:mt-0`}>
-                <div className={`${path === '/' ? "text-blue-950" : "text-gray-400"} flex items-center gap-3`}>
-                    <Link to="/" >Home</Link>
-                    <FaChevronRight />
+            <div className={`${menuOpen ? "flex" : "hidden"} flex-col md:flex md:flex-row md:pl-10 gap-4 md:gap-6 font-medium md:mt-0`}>
+                <div className="flex items-center gap-3">
+                    <Link to="/" className={`stranverse-link ${path === '/' ? 'is-active' : ''}`}>Home</Link>
+                    <FaChevronRight className="text-slate-600" />
                 </div>
-                <Link to="/dashboard" className={`${path === '/dashboard' ? "text-blue-950" : "text-gray-400"}`}>Dashboard V2</Link>
+                <Link to="/dashboard" className={`stranverse-link ${path === '/dashboard' ? 'is-active' : ''}`}>Dashboard V2</Link>
             </div>
 
 
@@ -72,30 +80,30 @@ const Navbar = () => {
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             placeholder="Search anything..."
-                            className="pl-8 pr-3 py-1.5 w-110 text-gray-800 opacity-70 bg-gray-100 border border-gray-500 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-950"
+                            className="glass-input pl-8 pr-3 py-2 w-110 rounded-md"
                         />
-                        <IoSearch className="absolute left-2 top-2.5 text-gray-400" size={20} />
+                        <IoSearch className="absolute left-2 top-2.5 text-slate-400" size={20} />
                     </div>
 
 
                 </div>
                 <div
                     onClick={() => setIsOpen(true)}
-                    className="flex items-center justify-center mt-1 gap-2 cursor-pointer text-gray-400 hover:text-blue-950">
+                    className="flex items-center justify-center mt-1 gap-2 cursor-pointer text-slate-400 hover:text-sky-300">
                     <span>Add Category
                     </span>
                     <FaPlus />
                 </div>
 
                 <div className="flex justify-center gap-5 md:gap-10 ">
-                    <button className="cursor-pointer p-1.5 text-gray-400 hover:text-blue-950 md:mt-1.5">
+                    <button className="cursor-pointer p-1.5 text-slate-400 hover:text-sky-300 md:mt-1.5">
                         <PiBellRingingFill size={22} />
                     </button>
-                    <div className="cursor-pointer p-1.5 md:mt-1.5 text-gray-400 hover:text-blue-950 ">
+                    <div className="cursor-pointer p-1.5 md:mt-1.5 text-slate-400 hover:text-sky-300 ">
                         <FaAngleDown />
                     </div>
                     {/* User Dropdown */}
-                    <div className="flex items-center gap-1 cursor-pointer md:mt-1.5 bg-gray-300 rounded-full p-1.5 text-gray-100 hover:text-blue-950 ">
+                    <div className="flex items-center gap-1 cursor-pointer md:mt-1.5 bg-slate-700 rounded-full p-1.5 text-slate-200 hover:text-sky-300 ">
                         <FaUser size={20} />
 
                     </div>
